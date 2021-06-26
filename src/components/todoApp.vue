@@ -1,10 +1,10 @@
 <template>
   <div id="nav">
-    <input type="text" placeholder="Wpisz zadanie..." v-model="newTask" />
-    <button @click="handleButton">Dodaj</button>
+    <input type="text" placeholder="Type new task..." v-model="newTask" />
+    <button @click="handleButton">Add</button>
 
     <section>
-      <h3>Lista zadań</h3>
+      <h3>Tasks to do</h3>
 
       <div
         class="task"
@@ -25,7 +25,11 @@
 export default {
   data() {
     return {
-      tasks: [{ name: 'zrobić kupę', completed: false, id: 'df2fed' }],
+      tasks: [
+        { name: "wash the dishes ", completed: false, id: "1" },
+        { name: "vacuum ", completed: false, id: "2" },
+        { name: "walk with a dog ", completed: false, id: "3" },
+      ],
     };
   },
   methods: {
@@ -36,7 +40,7 @@ export default {
           completed: false,
           id: Math.random(),
         });
-        this.newTask = '';
+        this.newTask = "";
       }
     },
     checkTask(id) {
@@ -58,7 +62,6 @@ export default {
 
 #nav {
   padding: 30px;
-
 }
 
 *,
