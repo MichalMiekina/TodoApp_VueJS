@@ -5,24 +5,18 @@
 
     <section>
       <h3>Tasks to do</h3>
-
-      <div
-        class="task"
-        v-for="task in tasks"
-        v-bind:key="task.id"
-        v-bind:class="{
-          completed: task.completed,
-        }"
-        @click="checkTask(task.id)"
-      >
-        <span>{{ task.name }}</span>
-      </div>
+        <TodoItem v-bind:task="task" v-for="task in tasks" v-bind:key="task.id" @checkClicked="checkTask"/>
+      
     </section>
   </div>
 </template>
 
 <script>
+import TodoItem from './TodoItem.vue'
 export default {
+  components:{
+    TodoItem
+  },
   data() {
     return {
       tasks: [
